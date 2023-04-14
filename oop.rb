@@ -41,6 +41,7 @@ vamp1 = Vampire.new("Miles")
 p vamp1
 vamp1.drink
 p vamp1
+#
 puts "==========================================="
 
 #  Write a Dragon class
@@ -74,7 +75,8 @@ dragon1.eat
 p dragon1
 dragon1.eat
 p dragon1
-
+#
+puts "==========================================="
 
 #  Write a Hobbit class
 #  it should have a dynamic name attribute (string)
@@ -84,3 +86,45 @@ p dragon1
 #  it should have an is_adult attribute (boolean) that is false by default. once a Hobbit is 33, it should be an adult
 #  it should have an is_old attribute that defaults to false. once a Hobbit is 101, it is old.
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
+
+class Hobbit
+    def initialize(name, disposition)
+        @name = name
+        @disposition = disposition
+        @age = 0
+        @is_adult = false
+        @is_old = false
+        if name == "Frodo"
+            @has_ring = true
+        else
+            @has_ring = false
+        end
+    end
+
+    def celebrate_birthday
+        @age += 1
+
+        if @age >= 33
+            @is_adult = true
+        end
+
+        if @age >= 101
+            @is_old = true
+        end
+    end
+end
+
+hobbit1 = Hobbit.new("Samwise", "Loyal")
+p hobbit1
+hobbit2 = Hobbit.new("Frodo", "Brave")
+p hobbit2
+hobbit1.celebrate_birthday
+p hobbit1
+33.times do
+    hobbit1.celebrate_birthday
+end
+p hobbit1
+80.times do
+    hobbit1.celebrate_birthday
+end
+p hobbit1
