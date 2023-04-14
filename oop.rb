@@ -3,10 +3,10 @@
 # it should have a color attribute, that is silver by default
 # it should have a method called "say" that returns whatever string is passed in, with "*~*" at the beginning and end of the string
 class Unicorn
-    attr_reader :name
-    def initialize(name)
+    attr_reader :name, :color
+    def initialize(name, color = "silver")
         @name = name
-        @color = "silver"
+        @color = color
     end
 
     def say(speech)
@@ -25,7 +25,7 @@ puts "==========================================="
 #  it should have a thirsty attribute, that is true by default
 #  it should have a drink method. When called, the thirsty attribute changes to false
 class Vampire
-    attr_reader :name
+    attr_reader :name, :thirsty, :pet
     def initialize(name, pet = "bat")
         @name = name
         @thirsty = true
@@ -51,6 +51,7 @@ puts "==========================================="
 #  it should have a is_hungry attribute that is true by default
 #  it should have a eat method. If the dragon eats 4 times, it is no longer hungry
 class Dragon
+    attr_reader :name, :rider, :color, :is_hungry
     def initialize(name, rider, color, is_hungry = true)
         @name = name
         @rider = rider
@@ -88,6 +89,7 @@ puts "==========================================="
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
 class Hobbit
+    attr_reader :name, :disposition, :age, :is_adult, :is_old, :has_ring
     def initialize(name, disposition)
         @name = name
         @disposition = disposition
