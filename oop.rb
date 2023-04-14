@@ -90,17 +90,13 @@ puts "==========================================="
 
 class Hobbit
     attr_reader :name, :disposition, :age, :is_adult, :is_old, :has_ring
-    def initialize(name, disposition)
+    def initialize(name, disposition, age = 0)
         @name = name
         @disposition = disposition
-        @age = 0
+        @age = age
         @is_adult = false
         @is_old = false
-        if name == "Frodo"
-            @has_ring = true
-        else
-            @has_ring = false
-        end
+        @has_ring = false
     end
 
     def celebrate_birthday
@@ -114,12 +110,23 @@ class Hobbit
             @is_old = true
         end
     end
+
+    def has_ring
+        if name == "Frodo"
+            @has_ring = true
+        end
+    end
 end
 
 hobbit1 = Hobbit.new("Samwise", "Loyal")
+hobbit1.has_ring
 p hobbit1
-hobbit2 = Hobbit.new("Frodo", "Brave")
+
+hobbit2 = Hobbit.new("Frodo", "Brave", 33)
+hobbit2.celebrate_birthday
+hobbit2.has_ring
 p hobbit2
+
 hobbit1.celebrate_birthday
 p hobbit1
 33.times do
